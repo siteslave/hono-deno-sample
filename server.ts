@@ -14,7 +14,7 @@ app.onError((err, c: Context) => {
     return err.getResponse()
   }
 
-  throw new HTTPException(401, { message: 'Unauthorized' })
+  throw new HTTPException(500, { message: 'Internal error' })
 })
 
 app.post('/gen-password', async (c: Context) => {
