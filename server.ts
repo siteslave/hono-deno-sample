@@ -4,7 +4,7 @@ import { jwt } from "https://deno.land/x/hono@v3.10.0-rc.2/middleware.ts"
 
 import { createUser, getUsers, removeUser, updateUser } from './controllers/users.ts'
 import { login } from './controllers/login.ts'
-import { SECRET_KEY } from './config.ts';
+import { SECRET_KEY } from './config.ts'
 
 const app = new Hono()
 
@@ -14,7 +14,7 @@ app.onError((err, c: Context) => {
     return err.getResponse()
   }
 
-  throw new HTTPException(500, { message: 'Internal error' })
+  throw new HTTPException(500, { message: err.message })
 })
 
 app.post('/gen-password', async (c: Context) => {
