@@ -1,5 +1,5 @@
 import { Context } from "jsr:@hono/hono@4.8.12"
-import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts"
+import * as argon2 from "https://deno.land/x/argon2/mod.ts"
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 import { UserModel } from "../models/user.ts"
@@ -42,8 +42,7 @@ export const createUser = async (c: Context) => {
       return c.json({ ok: false, message: 'Invalid data' })
     }
 
-    const salt = await bcrypt.genSalt(8)
-    const hash = await bcrypt.hash(String(body.password), salt)
+    const hash = await argon2.hash(String(body.password))
     await model.createUser(body.username, hash, body.firstName, body.lastName)
 
     c.status(201)
@@ -76,8 +75,7 @@ export const updateUser = async (c: Context) => {
       return c.json({ ok: false, message: 'Invalid data' })
     }
 
-    const salt = await bcrypt.genSalt(8)
-    const hash = await bcrypt.hash(String(body.password), salt)
+    const hash = await argon2.hash(String(body.password))
     await model.updateUser(userId, hash, body.firstName, body.lastName)
 
     c.status(200)
