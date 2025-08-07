@@ -1,6 +1,6 @@
-import { Context, HTTPException, Hono } from 'https://deno.land/x/hono@v3.9.2/mod.ts'
+import { Context, HTTPException, Hono } from 'jsr:@hono/hono@4.8.12'
 import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
-import { jwt } from "https://deno.land/x/hono@v3.10.0-rc.2/middleware.ts"
+import { jwt } from 'jsr:@hono/hono@4.8.12/jwt'
 
 import { createUser, getUsers, removeUser, updateUser } from './controllers/users.ts'
 import { login } from './controllers/login.ts'

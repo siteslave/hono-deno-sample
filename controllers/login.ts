@@ -1,6 +1,6 @@
 import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
-import { Context, HTTPException } from 'https://deno.land/x/hono@v3.9.2/mod.ts';
-import * as hono from "https://deno.land/x/hono@v3.10.0-rc.2/utils/jwt/jwt.ts";
+import { Context, HTTPException } from 'jsr:@hono/hono@4.8.12';
+import * as hono from "jsr:@hono/hono@4.8.12/jwt";
 
 import { LoginModel } from '../models/login.ts';
 import { SECRET_KEY } from '../config.ts';
