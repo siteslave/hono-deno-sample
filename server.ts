@@ -1,5 +1,5 @@
 import { Context, HTTPException, Hono } from 'jsr:@hono/hono@4.8.12'
-import * as argon2 from "https://deno.land/x/argon2/mod.ts";
+import * as argon2 from "jsr:@felix/argon2@3.0.2";
 import { jwt } from 'jsr:@hono/hono@4.8.12/jwt'
 
 import { createUser, getUsers, removeUser, updateUser } from './controllers/users.ts'
