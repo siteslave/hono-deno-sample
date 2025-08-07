@@ -8,7 +8,7 @@ import { SECRET_KEY } from './config.ts'
 
 const app = new Hono()
 
-app.onError((err, c: Context) => {
+app.onError((err, _c: Context) => {
   console.log(err);
   if (err instanceof HTTPException) {
     return err.getResponse()
