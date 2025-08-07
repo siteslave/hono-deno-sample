@@ -1,5 +1,5 @@
 import { Context, HTTPException, Hono } from 'jsr:@hono/hono@4.8.12'
-import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
+import * as argon2 from "https://deno.land/x/argon2/mod.ts";
 import { jwt } from 'jsr:@hono/hono@4.8.12/jwt'
 
 import { createUser, getUsers, removeUser, updateUser } from './controllers/users.ts'
@@ -20,8 +20,7 @@ app.onError((err, c: Context) => {
 app.post('/gen-password', async (c: Context) => {
   const { password } = await c.req.parseBody()
 
-  const salt = await bcrypt.genSalt(8);
-  const hash = await bcrypt.hash(String(password), salt);
+  const hash = await argon2.hash(String(password));
 
   return c.json({
     ok: true,

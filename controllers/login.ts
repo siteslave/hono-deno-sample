@@ -1,4 +1,4 @@
-import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
+import * as argon2 from "https://deno.land/x/argon2/mod.ts";
 import { Context, HTTPException } from 'jsr:@hono/hono@4.8.12';
 import * as hono from "jsr:@hono/hono@4.8.12/jwt";
 
@@ -17,7 +17,7 @@ export const login = async (c: Context) => {
   }
 
   const hash = user[0].password
-  const match = await bcrypt.compare(String(password), hash);
+  const match = await argon2.verify(hash, String(password));
   if (!match) {
     c.status(401)
     return c.json({ ok: false, message: 'Invalid password' })
