@@ -23,7 +23,7 @@ jobs:
 
       - name: Lint code
         run: deno lint
-
+        
       - name: Log in to the GitHub Container Registry
         uses: docker/login-action@v3
         with:

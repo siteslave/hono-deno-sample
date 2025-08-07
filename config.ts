@@ -8,3 +8,7 @@ export const DB_NAME = env["DB_NAME"] || 'test';
 export const DB_USER = env["DB_USER"] || 'postgres';
 export const DB_PASSWORD = env["DB_PASSWORD"] || '123456';
 export const SECRET_KEY = env["SECRET_KEY"] || 'tdsKytaxRN5P18td';
+
+export const REDIS_HOST = env["REDIS_HOST"] || '127.0.0.1';
+export const REDIS_PORT = env["REDIS_PORT"] || 6379;
+export const REDIS_PASSWORD = env["REDIS_PASSWORD"] || undefined;
