@@ -1,4 +1,4 @@
-import { Context } from "https://deno.land/x/hono@v3.9.2/mod.ts"
+import { Context } from "jsr:@hono/hono@4.8.12"
 import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts"
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
