@@ -5,6 +5,7 @@ import { jwt } from 'jsr:@hono/hono@4.8.12/jwt'
 import { createUser, getUsers, removeUser, updateUser } from './controllers/users.ts'
 import { login } from './controllers/login.ts'
 import { SECRET_KEY } from './config.ts'
+import { rateLimiter } from './middlewares/rate-limiter.ts'
 
 const app = new Hono()
 
@@ -35,7 +36,7 @@ app.get('/', (c: Context) => {
   })
 })
 
-app.post('/login', login)
+app.post('/login', rateLimiter, login)
 
 app.use(
   '/api/*',
