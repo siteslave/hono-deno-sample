@@ -1,5 +1,5 @@
 import { Context } from "jsr:@hono/hono@4.8.12"
-import * as argon2 from "https://deno.land/x/argon2/mod.ts"
+import * as argon2 from "jsr:@felix/argon2@3.0.2";
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 import { UserModel } from "../models/user.ts"

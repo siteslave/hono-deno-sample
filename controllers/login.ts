@@ -1,4 +1,4 @@
-import * as argon2 from "https://deno.land/x/argon2/mod.ts";
+import * as argon2 from "jsr:@felix/argon2@3.0.2";
 import { Context, HTTPException } from 'jsr:@hono/hono@4.8.12';
 import * as hono from "jsr:@hono/hono@4.8.12/jwt";
 
